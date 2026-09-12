@@ -1,0 +1,117 @@
+-- welcome to pl/sql block
+
+declare
+
+begin
+     dbms_output.put_line('welcome to pl/sql block:');
+
+end;
+
+
+--To Count Square.
+
+declare
+       cou number(10):=:cou;
+       val number(10):=cou * cou;
+
+begin
+     dbms_output.put_line('count square of '||val);
+
+end;
+
+
+-- Find Simple Interest
+
+declare 
+       p number(5):=10;
+       t number(5):=20;
+       r number(5):=30;
+       interest number(5);
+begin 
+     interest:=(p * t * r) /100;
+     dbms_output.put_line('interest your mark is:'||interest);
+
+end;
+
+
+--global and local variable
+
+declare 
+       global number(10):=100;
+ 
+begin 
+     dbms_output.put_line('global variable is:'||global);
+
+declare 
+      local varchar2(10):='hetvin';
+
+begin 
+   dbms_output.put_line('local variable is :'||local);
+
+end;
+
+end;
+
+
+
+
+--constant variable
+
+DECLARE 
+      NUM CONSTANT  NUMBER(10):=200;
+
+BEGIN
+     DBMS_OUTPUT.PUT_LINE('CONST VALUES:'||NUM);
+END;
+
+
+
+
+--IF-THEN-ELSIF-ELSE.
+
+DECLARE 
+       AGE NUMBER(10):=:AGE;
+BEGIN
+     IF(AGE > 18) THEN 
+         DBMS_OUTPUT.PUT_LINE('TICKET PRICE 200');
+     ELSIF(AGE < 10)THEN 
+         DBMS_OUTPUT.PUT_LINE('TICKET IS PRICE 100:');
+     ELSIF(AGE > 30) THEN
+         DBMS_OUTPUT.PUT_LINE('TICKTE PRICE IS 300:');
+     ELSE
+         DBMS_OUTPUT.PUT_LINE('TICKET  REGULAR PRICE IS 150:');
+     END IF;
+END;
+
+
+
+
+
+
+
+
+--Input three no and find out maximum and minimum from it.
+
+DECLARE 
+       A NUMBER(10):=:A;
+       B NUMBER(10):=:B;
+       C NUMBER(10):=:C;
+BEGIN
+     IF (A<B AND A<C) THEN
+        IF(A < B ) THEN
+             DBMS_OUTPUT.PUT_LINE('MAX:'||A);
+        ELSE
+             DBMS_OUTPUT.PUT_LINE('MIN');
+     ELSIF(B<C AND B<A) THEN 
+        IF(B < C ) THEN
+             DBMS_OUTPUT.PUT_LINE('MAX:');
+        ELSE
+             DBMS_OUTPUT.PUT_LINE('MIN');
+
+     ELSIF(C<B AND C<A) THEN 
+         IF (C < B )THEN 
+              DBMS_OUTPUT.PUT_LINE('MAX:');
+         ELSE 
+              DBMS_OUTPUT.PUT_LINE('MIN');
+     END IF;
+END ;
