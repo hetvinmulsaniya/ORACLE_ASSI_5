@@ -1,4 +1,4 @@
--- welcome to pl/sql block
+1)-- welcome to pl/sql block
 
 declare
 
@@ -8,7 +8,7 @@ begin
 end;
 
 
---To Count Square.
+2)--To Count Square.
 
 declare
        cou number(10):=:cou;
@@ -20,7 +20,7 @@ begin
 end;
 
 
--- Find Simple Interest
+3)-- Find Simple Interest
 
 declare 
        p number(5):=10;
@@ -34,7 +34,7 @@ begin
 end;
 
 
---global and local variable
+4)--global and local variable
 
 declare 
        global number(10):=100;
@@ -55,7 +55,7 @@ end;
 
 
 
---constant variable
+5)--constant variable
 
 DECLARE 
       NUM CONSTANT  NUMBER(10):=200;
@@ -67,7 +67,7 @@ END;
 
 
 
---IF-THEN-ELSIF-ELSE.
+6)--IF-THEN-ELSIF-ELSE.
 
 DECLARE 
        AGE NUMBER(10):=:AGE;
@@ -90,28 +90,78 @@ END;
 
 
 
---Input three no and find out maximum and minimum from it.
+7)--Input three no and find out maximum and minimum from it.
 
 DECLARE 
        A NUMBER(10):=:A;
        B NUMBER(10):=:B;
        C NUMBER(10):=:C;
 BEGIN
-     IF (A<B AND A<C) THEN
-        IF(A < B ) THEN
-             DBMS_OUTPUT.PUT_LINE('MAX:'||A);
-        ELSE
-             DBMS_OUTPUT.PUT_LINE('MIN');
-     ELSIF(B<C AND B<A) THEN 
-        IF(B < C ) THEN
-             DBMS_OUTPUT.PUT_LINE('MAX:');
-        ELSE
-             DBMS_OUTPUT.PUT_LINE('MIN');
-
-     ELSIF(C<B AND C<A) THEN 
-         IF (C < B )THEN 
-              DBMS_OUTPUT.PUT_LINE('MAX:');
-         ELSE 
-              DBMS_OUTPUT.PUT_LINE('MIN');
+     IF (A<B AND B>C) THEN
+               DBMS_OUTPUT.PUT_LINE('MAX='||B);
+      
+     ELSIF(B<C AND C>A) THEN 
+            DBMS_OUTPUT.PUT_LINE('MAX:='||C);
+        
+     ELSE
+            DBMS_OUTPUT.PUT_LINE('MAX:='||A);
+         
+     END IF;
+       
+       IF (A>B AND B<C) THEN
+               DBMS_OUTPUT.PUT_LINE('MIN='||B);
+      
+     ELSIF(B>C AND C<A) THEN 
+            DBMS_OUTPUT.PUT_LINE('MIN:='||C);
+        
+     ELSE
+            DBMS_OUTPUT.PUT_LINE('MIN:='||A);
+         
      END IF;
 END ;
+
+
+
+(9)--PL/SQL Case Statement. 
+DECLARE 
+       DEPT CHAR(1):='B';
+BEGIN
+     CASE DEPT 
+           WHEN 'A' THEN
+              DBMS_OUTPUT.PUT_LINE('BCA DEPARTMENT');
+           WHEN 'B' THEN 
+              DBMS_OUTPUT.PUT_LINE('MCA DEPARTMENT');
+           WHEN 'M' THEN 
+              DBMS_OUTPUT.PUT_LINE('CA DEPARTMENT');
+     ELSE 
+         DBMS_OUTPUT.PUT_LINE('INVALID DEPARTMENT');
+     END CASE;
+END;
+      
+
+
+
+(10)-- print first 10 numbers using basic loop.. exit loop.
+DECLARE 
+       I NUMBER(3):=1;
+BEGIN
+      LOOP
+          DBMS_OUTPUT.PUT_LINE(I);
+      EXIT WHEN (I = 10);
+      I:=I+1;
+      END LOOP;
+END ;
+
+(11)-- print first 10 numbers using while loop.
+DECLARE 
+       I NUMBER(10):=1;
+
+BEGIN 
+     WHILE (I <= 10)
+     LOOP
+      DBMS_OUTPUT.PUT_LINE(I);
+     I:=I+1;
+     END LOOP;
+END;
+
+
